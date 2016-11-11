@@ -19,3 +19,5 @@ CREATE DATABASE
 postgres=# \q
 
 rails db:setup
+
+bundle exec rspec spec
