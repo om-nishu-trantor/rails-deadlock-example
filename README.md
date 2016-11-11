@@ -83,10 +83,14 @@ Puma starting in single mode...
 * Environment: development
 * Listening on tcp://localhost:3000
 Use Ctrl-C to stop
+
+# Visit http://localhost:3000/examples in browser...
+
 Started GET "/examples" for ::1 at 2016-11-11 13:20:42 -0500
 Processing by ExamplesController#index as HTML
 ParallelMapper instance: work_in_threads: 3
 ParallelMapper instance: work_in_threads: 1
 ParallelMapper instance: work_in_threads: 2
-... deadlocked ...
+
+# ... deadlocked ...
 ```
