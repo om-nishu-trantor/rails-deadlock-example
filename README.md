@@ -18,7 +18,13 @@ The `ExamplesController` creates a `ParallelMapper` instance and calls its `work
 Why does this happen and how should I address it?
 
 If I explicitly require the collaborator classes the problem goes away.
-Is that the correct solution?
+That seems a little haphazard, but is it the correct solution?
+
+Setting `config.eager_load = true` in test/development would also avoid the problem although I'd prefer not to do that for speed.
+
+The `Rails.application.reloader.wrap` API introduced by @matthewd in https://github.com/rails/rails/pull/23807
+might be helpful although I'm not sure how to apply it to my problem here.
+Maybe the parallel gem would need to make use of that API rather than my app?
 
 ### Environment ###
 ```
