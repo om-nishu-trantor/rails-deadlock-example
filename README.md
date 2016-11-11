@@ -1,4 +1,24 @@
-# README
+# Rails 5 Deadlock Example
+
+I am seeing a deadlocking issue that appears to have something to do
+with threads and autoloading.
+
+This example app uses the Parallel gem, https://github.com/grosser/parallel,
+to run three threads from my `ParallelMapper` class. Each thread creates an instance of my `CollaboratorOne` class to perform work. In turn `CollaboratorOne` creates an instance of `CollaboratorTwo` to assist with the work.
+
+I have `config.eager_load = false` in config/environments/test.rb|development.rb.
+Therefore the instantiations of `CollaboratorOne` and `CollaboratorTwo` must provoke autoloading of those classes unless I explicitly require them from `ParallelMapper`.
+
+Finally I have a request spec that makes an HTTP request to my "/examples" endpoint.
+The `ExamplesController` creates a `ParallelMapper` instance and calls its `work_in_threads` method to kick off the work described above.
+
+* The Rspec test throws an error "No live threads left. Deadlock?"
+* Manually loading http://localhost:3000/examples in my browser actually deadlocks - the server hangs while processing the request.
+
+Why does this happen and how should I address it?
+
+If I explicitly require the collaborator classes the problem goes away.
+Is that the correct solution?
 
 ### Environment ###
 ```
