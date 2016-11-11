@@ -13,6 +13,12 @@ $ uname -prsv
 Darwin 15.6.0 Darwin Kernel Version 15.6.0: Thu Sep  1 15:01:16 PDT 2016; root:xnu-3248.60.11~2/RELEASE_X86_64 i386
 ```
 
+### How this app was created ###
+```
+$ rails new rails-deadlock-example -d postgresql
+$ rails generate rspec:install
+```
+
 ### DB Setup ###
 ```
 $ psql -d postgres
