@@ -3,7 +3,6 @@
 #require_relative './collaborator_two.rb'
 
 class ParallelMapper
-
   def work_in_threads
     data = [1, 2, 3]
     Parallel.map(data, in_threads: 3) do |item|
@@ -14,5 +13,4 @@ class ParallelMapper
       end
     end
   end
-
 end
