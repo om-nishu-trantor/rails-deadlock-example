@@ -27,7 +27,7 @@ set -e
  # Set up local config
  cp config/database.example.yml config/database.yml
  
- bundle install --deployment --retry=3
+ bundle install
  bundle exec rake db:drop || true
  bundle exec rake db:create db:migrate
  bundle exec rake db:seed
