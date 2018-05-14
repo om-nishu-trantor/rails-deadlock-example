@@ -20,7 +20,9 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
+  username: <%= ENV["PSQL_USERNAME"] %>
+  password: <%= ENV["PSQL_PASSWORD"] %>
+  
 development:
   <<: *default
   database: rails_deadlock_example_development
@@ -81,5 +83,3 @@ test:
 production:
   <<: *default
   database: rails_deadlock_example_production
-  username: rails_deadlock_example
-  password: <%= ENV['RAILS-DEADLOCK-EXAMPLE_DATABASE_PASSWORD'] %>
