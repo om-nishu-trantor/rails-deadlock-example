@@ -8,7 +8,7 @@ pipeline {
          
          stage('Install Infrastructure') {
              steps {
-                    sh 'echo "bash build.sh"'
+                    sh 'bash build.sh'
              }             
          }
          
